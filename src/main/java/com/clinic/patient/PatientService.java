@@ -47,6 +47,11 @@ public class PatientService {
 		return patientRepo.findByPhoneNumber(phone);
 	}
 
+	public void deletePhone(String phone) {
+		Patient patient=patientRepo.findByPhoneNumber(phone);
+		patientRepo.delete(patient);
+	}
+
 //	public List<Order> getAllOrders(String name) {
 //		return patientRepo.findByOrders(name);
 //	}

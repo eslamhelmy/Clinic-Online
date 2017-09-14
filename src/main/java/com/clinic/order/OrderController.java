@@ -40,4 +40,10 @@ public class OrderController {
 	public List<Order> getOrderByPhone(@PathVariable String phone){
 		return orderServ.findOrderByPhone(phone);
 	}
+	@RequestMapping("/patients/{phone}/orders/{orderId}")
+	public void updateOrder(@PathVariable String phone,@PathVariable int orderId,@RequestBody Order order){
+		Patient patient = serv.findByPhoneNumber(phone);
+		order.setPatient(patient);
+		orderServ.updateOrder(order,orderId);
+	}
 }

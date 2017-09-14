@@ -53,7 +53,10 @@ public class PatientController {
 	public Patient getPatientByPhone(@PathVariable String phone){
 		return serv.getPatientByPhone(phone);
 	}
-	
+	@RequestMapping(value="/patients/{phone}", method=RequestMethod.DELETE)
+	public void deletePatient(String phone){
+		serv.deletePhone(phone);
+	}
 //	@RequestMapping("/patients/{name}/orders")
 //	public List<Order> getAllOrders(@PathVariable String name){
 //		return serv.getAllOrders(name);
